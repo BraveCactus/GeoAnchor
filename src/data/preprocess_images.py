@@ -40,7 +40,7 @@ def load_and_preprocess_tiff(tiff_img_path, target_size=518):
         
         # Делаем так, чтобы на каждый пиксель приходилось по 8 бит        
         if img_data.dtype == np.uint16:            
-            img_data = (img_data / 65535.0 * 255).astype(np.uint8)  # ИСПРАВЛЕНО
+            img_data = (img_data / 65535.0 * 255).astype(np.uint8)
         elif img_data.dtype == np.uint8:            
             pass
         else:            
