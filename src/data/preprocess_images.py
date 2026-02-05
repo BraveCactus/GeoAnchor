@@ -1,12 +1,12 @@
 import os
-import io
-import sys
 import numpy as np
+import pandas as pd
+import rasterio
 import tifffile as tiff
 from PIL import Image
 from torchvision import transforms
 
-from config import DATA_ROOT, PREPROCESSES_IMAGES_ROOT
+from config import DATA_ROOT, PREPROCESSES_IMAGES_ROOT, SEQUENCE
 
 def show_image_data(img_data):
     """Показывает данные изображения"""
