@@ -12,8 +12,7 @@ class Dinov2EmbendingExtractor:
         self.model.eval()
 
     def gem_pooling(self, x, p=3.0):    
-        # GeM(x, p) = (1/N * Σ xi^p)^(1/p)
-        batch_size, num_tokes, hidden_dim = x.shape
+        # GeM(x, p) = (1/N * Σ xi^p)^(1/p)      
 
         x_pow = x.clamp(min=1e-6).pow(p)
         mean_pooled = x_pow.mean(dim=1)

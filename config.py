@@ -12,8 +12,12 @@ DATA_ROOT = PROJECT_ROOT / "inria_aerial_dataset"
 # Путь для различных результатов
 RESULTS_PATH = PROJECT_ROOT / "results"
 
-# Путь для сохранения результатов
-PREPROCESSES_IMAGES_ROOT = RESULTS_PATH / "AerialImageDataset_for_DINOv2"
+# Путь для сохранения обработанных снимков
+PREPROCESSES_IMAGES_PATH = RESULTS_PATH / "AerialImageDataset_for_DINOv2"
+
+# Пути для сохранения разрезанных снимков
+TRAIN_SLICED_IMAGES_PATH = RESULTS_PATH / "sliced_images" / "train"
+TEST_SLICED_IMAGES_PATH = RESULTS_PATH / "sliced_images" / "test"
 
 # Правильная последовательность снимков для городов (из верхнего левого в правый нижний, слева направо)
 SEQUENCE = [6, 12, 18, 24, 30, 36,

@@ -2,8 +2,8 @@ import os
 import pandas as pd
 from pathlib import Path
 
-from config import DATA_ROOT, RESULTS_PATH, TRAIN_CITY_LIST, TEST_CITY_LIST
-from src.data.preprocess_images import load_and_preprocess_tiff, extract_embedding_from_tiff
+from config import DATA_ROOT, RESULTS_PATH, TRAIN_CITY_LIST, TEST_CITY_LIST, TRAIN_SLICED_IMAGES_PATH, TEST_SLICED_IMAGES_PATH
+from src.data.preprocess_images import load_and_preprocess_tiff, extract_embedding_from_tiff, slice_image
 from src.data.images_tools import read_tiff_metadata, build_city_compressed_map, get_city_data
 
 train_data_path = DATA_ROOT / r"AerialImageDataset\train\images"
@@ -37,8 +37,8 @@ if __name__ == "__main__":
     # for city in TEST_CITY_LIST:
     #     build_city_compressed_map(test_data_path, test_map_folder_path, city)
 
-    city_path = train_map_folder_path = RESULTS_PATH / "cities_data" / "train" / "kitsap_data.csv"
-    city_data = pd.read_csv(city_path)
+    # city_path = train_map_folder_path = RESULTS_PATH / "cities_data" / "train" / "kitsap_data.csv"
+    # city_data = pd.read_csv(city_path)
 
     # min_left = city_data.loc[city_data["left"].idxmin()]["left"]  
     # min_bottom = city_data.loc[city_data["bottom"].idxmin()]["bottom"]
@@ -63,4 +63,5 @@ if __name__ == "__main__":
     # for idx, row in all_min_bottom.iterrows():
     #     print(f"{row['image name']}: bottom={row['bottom']}, left={row['left']}")
     
-    embedding = extract_embedding_from_tiff(test_img_path)
+    # embedding = extract_embedding_from_tiff(test_img_path)
+    patches = slice_image(test_img_path, TRAIN_SLICED_IMAGES_PATH)
