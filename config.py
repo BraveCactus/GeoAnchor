@@ -9,11 +9,11 @@ PROJECT_ROOT = Path(__file__).parent
 # Путь к исходным данным
 DATA_ROOT = PROJECT_ROOT / "inria_aerial_dataset"
 
-# Путь для сохранения результатов
-PREPROCESSES_IMAGES_ROOT = DATA_ROOT / "AerialImageDataset_for_DINOv2"
-
 # Путь для различных результатов
 RESULTS_PATH = PROJECT_ROOT / "results"
+
+# Путь для сохранения результатов
+PREPROCESSES_IMAGES_ROOT = RESULTS_PATH / "AerialImageDataset_for_DINOv2"
 
 # Правильная последовательность снимков для городов (из верхнего левого в правый нижний, слева направо)
 SEQUENCE = [6, 12, 18, 24, 30, 36,

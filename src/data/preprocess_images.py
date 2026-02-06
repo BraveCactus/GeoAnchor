@@ -7,6 +7,7 @@ from PIL import Image
 from torchvision import transforms
 
 from config import DATA_ROOT, PREPROCESSES_IMAGES_ROOT, SEQUENCE
+from src.models.models import Dinov2EmbendingExtractor
 
 def show_image_data(img_data):
     """Показывает данные изображения"""
@@ -63,7 +64,7 @@ def load_and_preprocess_tiff(tiff_img_path, target_size=518):
             transforms.Normalize(
                 mean=[0.485, 0.456, 0.406],
                 std=[0.229, 0.224, 0.225]
-            )
+            ) # норм_знач = (ориг_знач - mean) / std
         ])
 
         img_tensor = transform(resized_pill_img)
@@ -85,3 +86,22 @@ def load_and_preprocess_tiff(tiff_img_path, target_size=518):
 
     except Exception as e:
         print(f"Произошла ошибка при загрузке изображения: {e}")
+
+def extract_embedding_from_tiff(img_path, extractor=None):
+    img_tensor, _ = load_and_preprocess_tiff(img_path)
+
+    if img_tensor is None:
+        print(f"Не удалось обработать {img_path}")
+        return None
+    
+    if extractor == None:
+        extractor = Dinov2EmbendingExtractor()
+
+    embedding = extractor.extract_embedding(img_tensor)
+
+    print(f"Извлечен эмбеддинг для изображения {os.path.basename(img_path)}")    
+
+    return embedding
+    
+
+
