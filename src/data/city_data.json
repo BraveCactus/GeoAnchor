@@ -1,0 +1,29 @@
+{
+    "city": "austin",
+    "center": {
+        "lat": 30.25760232716275,
+        "lon": -97.74220338467259
+    },
+    "left_bottom": {
+        "lat": 30.216703557034315, 
+        "lon": -97.78948819570239 
+    },
+    "right_top": {
+        "lat": 30.29850109729119,
+        "lon": -97.69491857364278
+    },
+    "american_coordinates": {
+        "center": {
+            "easting": 621000.0,
+            "northing": 3348000.0
+        },
+        "left_bottom": {
+            "easting": 616500.0, 
+            "northing": 3343500.0
+        },
+        "right_top": {
+            "easting": 625500.0,
+            "northing": 3352500.0
+        }
+    }
+}
